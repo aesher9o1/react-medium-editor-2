@@ -5,6 +5,14 @@
   "author": "aesher9o1",
   "license": "MIT",
   "repository": "aesher9o1/react-medium-editor-2",
+  "homepage": "https://aesher9o1.github.io/react-medium-editor-2/",
+  "keywords": [
+    "react",
+    "react-functional-component",
+    "medium",
+    "editor",
+    "WYSIWYG"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
@@ -57,5 +65,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "medium-editor": "^5.23.3"
+  }
 }

@@ -1,22 +1,29 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
+import MediumEditor from 'medium-editor'
 
-import styles from './styles.css'
+export default function Editor(prop) {
+  const [text, setText] = useState(prop.text)
 
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
-  }
+  useEffect(() => {
+    const dom = document.getElementsByClassName(prop.className)[0]
+    const medium = new MediumEditor(dom, prop.options)
 
-  render() {
-    const {
-      text
-    } = this.props
 
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
-  }
+    setText(prop.text)
+
+    medium.subscribe('editableInput', () => {
+      if (prop.onChange)
+        prop.onChange(dom.innerHTML, medium)
+    });
+
+    return () => {
+      medium.destroy()
+    }
+  }, [text])
+
+
+  const editorProp = { ...prop, dangerouslySetInnerHTML: { __html: text } }
+
+  return React.createElement("div", editorProp);
+
 }

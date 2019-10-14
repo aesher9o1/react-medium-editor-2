@@ -9,20 +9,23 @@
 ```bash
 npm install --save react-medium-editor-2
 ```
+Then install the mandatory editor scripts
+ ```html
+ <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+ <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+ ```
 
 ## Usage
 
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-medium-editor-2'
+import Editor from 'react-medium-editor-2'
 
-class Example extends Component {
-  render () {
+function Component {
     return (
-      <MyComponent />
+      <Editor className="unique_and_mandatory_class_name"/>
     )
-  }
 }
 ```
 
